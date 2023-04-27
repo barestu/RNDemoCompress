@@ -93,9 +93,9 @@ android {
 
     compileSdkVersion rootProject.ext.compileSdkVersion
 
-    namespace "com.rnplayground"
+    namespace "com.barestu.democompress"
     defaultConfig {
-        applicationId "com.rnplayground"
+        applicationId "com.barestu.democompress"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

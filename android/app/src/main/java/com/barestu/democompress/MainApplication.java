@@ -1,4 +1,4 @@
-package com.rnplayground;
+package com.barestu.democompress;
 
 import android.app.Application;
 import com.facebook.react.PackageList;
