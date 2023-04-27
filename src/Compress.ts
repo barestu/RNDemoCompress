@@ -37,7 +37,7 @@ class Compress {
 
   private generateCommandScript() {
     const script = ['-i', this.inputPath];
-    script.push('-c:v', 'libx264', '-crf', '28', '-preset', 'fast');
+    script.push('-c:v', 'libx264', '-crf', '24', '-preset', 'fast');
     script.push('-y', this.outputPath);
     return script;
   }
@@ -47,7 +47,6 @@ class Compress {
     const inputSize = Number(information.getSize());
 
     const ffmpegCommand = this.generateCommandScript();
-    console.log(ffmpegCommand);
 
     FFmpegKit.executeWithArgumentsAsync(
       ffmpegCommand,
@@ -61,7 +60,6 @@ class Compress {
         }
 
         if (ReturnCode.isCancel(returnCode)) {
-          console.log('Cancelled');
           return;
         }
 
@@ -84,7 +82,9 @@ class Compress {
         }
       },
       log => {
-        console.log(log.getMessage());
+        if (__DEV__) {
+          console.log(log.getMessage());
+        }
       },
       statistic => {
         const totalProgress = Math.round(
